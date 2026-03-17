@@ -1,4 +1,4 @@
-python function instructions
+**python function instructions**
 
 
 **clip.py**<br>
