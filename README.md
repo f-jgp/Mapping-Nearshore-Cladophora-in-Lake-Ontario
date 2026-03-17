@@ -13,13 +13,13 @@ These two core USGS stations provide substantial, highly valuable ground-truth d
 
 For each coordinate of the ROI, we can use the formula to calculate the relative position on the quicklook image. The $lon_r$ and $lat_r$ are the longitude and latitude of the point we are calculated. For $maxlon_f$ is east of the quicklook footprint, $min⁡lon_f$ is west of the quicklook footprint $max⁡lat_f$ is north of the quicklook footprint and $min⁡lat_f$ is south of the quicklook footprint. W and H are the width and height of the quicklook image
 
-**Area of geojson find by geoinfomation**
+**ROI find by geoinfomation**
 
 <p align="center">
   <img src="images/real.png" width="400">
 </p>
 
-**Area of geojson find by calculate quicklook footprint**
+**ROI find by calculate quicklook footprint**
 <p align="center">
   <img src="images/calculate.png" width="400">
 </p>
