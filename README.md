@@ -23,3 +23,14 @@ For each coordinate of the ROI, we can use the formula to calculate the relative
 <p align="center">
   <img src="images/calculate.png" width="400">
 </p>
+
+**ROI find by homography**
+<p align="center">
+  <img src="images/roi_marked_cv2.png" width="400">
+</p>
+
+**compair of homogarphy result and geoinfomation result**
+<p align="center">
+  <img src="images/compair.png" width="400">
+</p>
+
