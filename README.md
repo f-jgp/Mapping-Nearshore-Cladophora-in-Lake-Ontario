@@ -43,7 +43,7 @@ The calculatation process can be simplify by using python openCV library. The RO
 
 
 <p align="center">
-  <img src="images/roicalculate.png" width="400">
+  <img src="images/roucalculatation.png" width="400">
 </p>
 
 <p align="center">
