@@ -24,6 +24,12 @@ For each coordinate of the ROI, we can use the formula to calculate the relative
   <img src="images/calculate.png" width="400">
 </p>
 
+
+<p align="center">
+  <img src="images/homography.png" width="400">
+</p>
+The footprint polygon and the region of interest (ROI) are first loaded from GeoJSON files. Program will transformed both into a consistent coordinate reference system The four corner points of the footprint are ordered consistently (top-left, top-right, bottom-right, bottom-left) to match the corresponding image corners. The quicklook image is loaded, and its four corner pixel coordinates are defined as:(0,0),(W,0),(W,H),(0,H) where W and H are the image width and height. A homography matrix H is computed using at least four pairs of corresponding points between the footprint (geographic coordinates) and the image (pixel coordinates). The calculatation process can be simplify by using python openCV library. The ROI vertices are transformed using the  homography matrix. This maps the ROI from geographic space to image pixel space.
+
 **ROI find by homography**
 <p align="center">
   <img src="images/roi_marked_cv2.png" width="400">
