@@ -25,10 +25,22 @@ For each coordinate of the ROI, we can use the formula to calculate the relative
 </p>
 
 
+The footprint polygon and the region of interest (ROI) are first loaded from GeoJSON files. Program will transformed both into a consistent coordinate reference system The four corner points of the footprint are ordered consistently (top-left, top-right, bottom-right, bottom-left) to match the corresponding image corners. The quicklook image is loaded, and its four corner pixel coordinates are defined as:(0,0),(W,0),(W,H),(0,H) where W and H are the image width and height. A homography matrix H is computed using at least four pairs of corresponding points between the footprint (geographic coordinates) and the image (pixel coordinates). 
+
 <p align="center">
   <img src="images/homography.png" width="400">
 </p>
-The footprint polygon and the region of interest (ROI) are first loaded from GeoJSON files. Program will transformed both into a consistent coordinate reference system The four corner points of the footprint are ordered consistently (top-left, top-right, bottom-right, bottom-left) to match the corresponding image corners. The quicklook image is loaded, and its four corner pixel coordinates are defined as:(0,0),(W,0),(W,H),(0,H) where W and H are the image width and height. A homography matrix H is computed using at least four pairs of corresponding points between the footprint (geographic coordinates) and the image (pixel coordinates). The calculatation process can be simplify by using python openCV library. The ROI vertices are transformed using the homography matrix and maps the ROI from geographic space to image pixel space. Because of the result is homogeneous coordinates, it need normalized by the scale factor that obtain from the final pixel coordinates. The projected ROI points are used to compute a bounding box in pixel coordinates, ensuring the values are clipped within image boundaries. Finally, the corresponding image region is cropped and calculate the region cloud density base on image brightness.
+
+The calculatation process can be simplify by using python openCV library. The ROI vertices are transformed using the homography matrix and maps the ROI from geographic space to image pixel space. Because of the result is homogeneous coordinates, it need normalized by the scale factor that obtain from the final pixel coordinates. The projected ROI points are used to compute a bounding box in pixel coordinates, ensuring the values are clipped within image boundaries. Finally, the corresponding image region is cropped and calculate the region cloud density base on image brightness.
+
+
+<p align="center">
+  <img src="images/roicalculate.png" width="400">
+</p>
+
+<p align="center">
+  <img src="images/normalize.png" width="400">
+</p>
 
 **ROI find by homography**
 <p align="center">
