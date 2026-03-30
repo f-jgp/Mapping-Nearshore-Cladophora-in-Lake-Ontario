@@ -33,7 +33,16 @@ To establish a mapping between the geographic coordinate space and the image pix
   <img src="images/h2.png" width="250">
 </p>
 
+where each parameter hij encodes a component of the projective transformation. Specifically, h11,h12,h21,h22 represent linear transformations such as scaling, rotation, and shear; h13and h23 correspond to translation in the horizontal and vertical directions; and h31 and h32 introduce perspective distortion, enabling the mapping between non-rectangular geographic footprints and the image plane. The parameter h33 acts as a normalization factor.<br>
+The transformation from geographic coordinates to image coordinates is performed in homogeneous form:<br>
+<p align="center">
+  <img src="images/roucalculatation.png" width="400">
+</p>
 
+where $x_{roi}$ and $y_{roi}$ denotes a point in geographic coordinates which is the coordinate of the roi, and x'and y' represents the corresponding homogeneous coordinates in the image space and w is the scaling factor in the homogeneous coordinates . The final pixel coordinates are obtained by normalization:<br>
+<p align="center">
+  <img src="images/normalize.png" width="400">
+</p>
 
 
 
@@ -49,13 +58,11 @@ To establish a mapping between the geographic coordinate space and the image pix
 The calculatation process can be simplify by using python openCV library. The ROI vertices are transformed using the homography matrix and maps the ROI from geographic space to image pixel space. Because of the result is homogeneous coordinates, it need normalized by the scale factor that obtain from the final pixel coordinates. The projected ROI points are used to compute a bounding box in pixel coordinates, ensuring the values are clipped within image boundaries. Finally, the corresponding image region is cropped and calculate the region cloud density base on image brightness.
 
 
-<p align="center">
-  <img src="images/roucalculatation.png" width="400">
-</p>
 
-<p align="center">
-  <img src="images/normalize.png" width="400">
-</p>
+
+
+
+
 
 **ROI find by homography**
 <p align="center">
