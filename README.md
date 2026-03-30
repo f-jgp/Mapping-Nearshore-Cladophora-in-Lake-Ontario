@@ -25,14 +25,21 @@ For each coordinate of the ROI, we can use the formula to calculate the relative
 </p>
 
 
-The footprint polygon and the region of interest (ROI) are first loaded from GeoJSON files. Program will transformed both into a consistent coordinate reference system The four corner points of the footprint are ordered consistently (top-left, top-right, bottom-right, bottom-left) to match the corresponding image corners. The quicklook image is loaded, and its four corner pixel coordinates are defined as:(0,0),(W,0),(W,H),(0,H) where W and H are the image width and height. A homography matrix H is computed using at least four pairs of corresponding points between the footprint (geographic coordinates) and the image (pixel coordinates). 
+The footprint polygon and the region of interest (ROI) are first loaded from GeoJSON files and transformed into a consistent coordinate reference system to ensure spatial alignment. The four corner points of the footprint are then ordered consistently (top-left, top-right, bottom-right, bottom-left) to match the corresponding image coordinate system.<br>
+The quicklook image is subsequently loaded, and its pixel coordinate system is defined such that the top-left corner is (0,0), the top-right is (W,0), the bottom-right is (W,H), and the bottom-left is (0,H), where W and H denote the image width and height.<br>
+To establish a mapping between the geographic coordinate space and the image pixel space, a homography matrix $H\in R^{3\times 3}$  is computed using at least four pairs of corresponding points between the footprint (in geographic coordinates) and the image corners (in pixel coordinates). The homography matrix is defined as:<br>
 
 <p align="center">
-  <img src="images/h1.png" width="150">
-  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/h2.png" width="250">
 </p>
 
+
+
+
+
+<p align="center">
+  <img src="images/h1.png" width="150">
+</p>
 
 <p align="center">
   <img src="images/h3.png" width="800">
