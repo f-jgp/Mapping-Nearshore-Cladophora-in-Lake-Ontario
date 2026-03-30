@@ -60,3 +60,13 @@ The calculatation process can be simplify by using python openCV library. The RO
   <img src="images/compair.png" width="400">
 </p>
 
+| Dataset| Method     | Coverage | Precision| IoU      |
+|--------|------------|----------|----------|----------|
+| ori    | Square     | 0.375946 | 0.366582 | 0.227901 |
+|        | Homography | 0.998136 | 0.836551 | 0.835246 |
+| ool    | Square     | 0.649688 | 0.633553 | 0.472232 |
+|        | Homography | 0.967785 | 0.896563 | 0.870581 |
+
+Coverage: how much of the ground truth ROI is successfully captured by the method. 
+Precision: how much of the predicted region actually belongs to the ground truth ROI indicating overestimation. 
+IoU : evaluation of both under-coverage and over-coverage
