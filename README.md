@@ -55,16 +55,23 @@ The calculatation process can be simplify by using python openCV library. The RO
   <img src="images/roi_marked_cv2.png" width="400">
 </p>
 
-**compair of homogarphy result and geoinfomation result**
+Green is the ground truth provide by the geoinformation. Yellow is the result using the rectangle projection. Red is the result using homography
+
+**compair ori**
 <p align="center">
-  <img src="images/compair.png" width="400">
+  <img src="images/compair_ori.png" width="400">
+</p>
+
+**compair ool**
+<p align="center">
+  <img src="images/compair_ool.png" width="400">
 </p>
 
 | Dataset| Method     | Coverage | Precision| IoU      |
 |--------|------------|----------|----------|----------|
-| ori    | Square     | 0.375946 | 0.366582 | 0.227901 |
+| ori    | rectangle  | 0.375946 | 0.366582 | 0.227901 |
 |        | Homography | 0.998136 | 0.836551 | 0.835246 |
-| ool    | Square     | 0.649688 | 0.633553 | 0.472232 |
+| ool    | rectangle  | 0.649688 | 0.633553 | 0.472232 |
 |        | Homography | 0.967785 | 0.896563 | 0.870581 |
 
 Coverage: how much of the ground truth ROI is successfully captured by the method. <br>
