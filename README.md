@@ -94,3 +94,12 @@ Green is the ground truth provide by the geoinformation. Yellow is the result us
 Coverage: how much of the ground truth ROI is successfully captured by the method. <br>
 Precision: how much of the predicted region actually belongs to the ground truth ROI indicating overestimation. <br>
 IoU : evaluation of both under-coverage and over-coverage<br>
+<p align="center">
+  <img src="images/Coverage.png" width="250">
+</p>
+<p align="center">
+  <img src="images/Precision.png" width="250">
+</p>
+<p align="center">
+  <img src="images/IoU.png" width="250">
+</p>
