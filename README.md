@@ -91,9 +91,9 @@ Green is the ground truth provide by the geoinformation. Yellow is the result us
 | ool    | rectangle  | 0.649688 | 0.633553 | 0.472232 |
 |        | Homography | 0.967785 | 0.896563 | 0.870581 |
 
-Coverage: how much of the ground truth ROI is successfully captured by the method. <br>
-Precision: how much of the predicted region actually belongs to the ground truth ROI indicating overestimation. <br>
-IoU : evaluation of both under-coverage and over-coverage<br>
+Coverage: how much of the true ROI is successfully captured <br>
+Precision: how much of the prediction is correct. <br>
+IoU : overall spatial agreement<br>
 <p align="center">
   <img src="images/Coverage.png" width="250">
 </p>
