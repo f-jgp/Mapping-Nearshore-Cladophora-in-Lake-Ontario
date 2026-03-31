@@ -27,32 +27,35 @@ For each coordinate of the ROI, we can use the formula to calculate the relative
 
 The footprint polygon and the region of interest (ROI) are first loaded from GeoJSON files and transformed into a consistent coordinate reference system to ensure spatial alignment. The four corner points of the footprint are then ordered consistently (top-left, top-right, bottom-right, bottom-left) to match the corresponding image coordinate system.<br>
 The quicklook image is subsequently loaded, and its pixel coordinate system is defined such that the top-left corner is (0,0), the top-right is (W,0), the bottom-right is (W,H), and the bottom-left is (0,H), where W and H denote the image width and height.<br>
+The homography transformation can be defined as:<br>
+<p align="center">
+  <img src="images/h1.png" width="250">
+</p>
+
+where (x,y) represents a point in the geographic coordinate space, and （x',y') denotes the corresponding point in the image coordinate space. The use of homogeneous coordinates allows the transformation to represent not only linear operations (such as scaling, rotation, and translation) but also projective (perspective) distortions.<br>
+
 To establish a mapping between the geographic coordinate space and the image pixel space, a homography matrix $H\in R^{3\times 3}$  is computed using at least four pairs of corresponding points between the footprint (in geographic coordinates) and the image corners (in pixel coordinates). The homography matrix is defined as:<br>
 
 <p align="center">
   <img src="images/h2.png" width="250">
 </p>
 
-where each parameter hij encodes a component of the projective transformation. Specifically, h11,h12,h21,h22 represent linear transformations such as scaling, rotation, and shear; h13and h23 correspond to translation in the horizontal and vertical directions; and h31 and h32 introduce perspective distortion, enabling the mapping between non-rectangular geographic footprints and the image plane. The parameter h33 acts as a normalization factor.<br>
+
+where each parameter h<sub>ij</sub> encodes a component of the projective transformation. Specifically, h<sub>11</sub>,h<sub>12</sub>,h<sub>22</sub>,h<sub>22</sub> represent linear transformations such as scaling, rotation, and shear; h<sub>13</sub>and h<sub>23</sub> correspond to translation in the horizontal and vertical directions; and h<sub>31</sub> and <sub>32</sub> introduce perspective distortion, enabling the mapping between non-rectangular geographic footprints and the image plane. The parameter h<sub>33</sub> acts as a normalization factor.<br>
+
+After the homography matrix is calculate base on the footprint coordinate and corresponding image coordinate, the ROI corresponding image coordinate can be calculate base on the homography matrix.
 The transformation from geographic coordinates to image coordinates is performed in homogeneous form:<br>
 <p align="center">
-  <img src="images/roucalculatation.png" width="400">
+  <img src="images/roucalculatation.png" width="250">
 </p>
 
 where $x_{roi}$ and $y_{roi}$ denotes a point in geographic coordinates which is the coordinate of the roi, and x'and y' represents the corresponding homogeneous coordinates in the image space and w is the scaling factor in the homogeneous coordinates . The final pixel coordinates are obtained by normalization:<br>
 <p align="center">
-  <img src="images/normalize.png" width="400">
+  <img src="images/normalize.png" width="250">
 </p>
 
 
 
-<p align="center">
-  <img src="images/h1.png" width="150">
-</p>
-
-<p align="center">
-  <img src="images/h3.png" width="800">
-</p>
 
 
 The calculatation process can be simplify by using python openCV library. The ROI vertices are transformed using the homography matrix and maps the ROI from geographic space to image pixel space. Because of the result is homogeneous coordinates, it need normalized by the scale factor that obtain from the final pixel coordinates. The projected ROI points are used to compute a bounding box in pixel coordinates, ensuring the values are clipped within image boundaries. Finally, the corresponding image region is cropped and calculate the region cloud density base on image brightness.
