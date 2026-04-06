@@ -41,7 +41,7 @@ To establish a mapping between the geographic coordinate space and the image pix
 </p>
 
 
-where each parameter h<sub>ij</sub> encodes a component of the projective transformation. Specifically, h<sub>11</sub>,h<sub>12</sub>,h<sub>22</sub>,h<sub>22</sub> represent linear transformations such as scaling, rotation, and shear; h<sub>13</sub>and h<sub>23</sub> correspond to translation in the horizontal and vertical directions; and h<sub>31</sub> and <sub>32</sub> introduce perspective distortion, enabling the mapping between non-rectangular geographic footprints and the image plane. The parameter h<sub>33</sub> acts as a normalization factor.<br>
+where each parameter h<sub>ij</sub> encodes a component of the projective transformation. Specifically, h<sub>11</sub>,h<sub>12</sub>,h<sub>22</sub>,h<sub>22</sub> represent linear transformations such as scaling, rotation, and shear; h<sub>13</sub>and h<sub>23</sub> correspond to translation in the horizontal and vertical directions; and h<sub>31</sub> and <sub>32</sub> introduce perspective distortion, enabling the mapping between non-rectangular geographic footprints and the image plane. When perspective distortion are not involve in the transformation h<sub>31</sub> and <sub>32</sub> will be 0. The parameter h<sub>33</sub> acts as a normalization factor.<br>
 
 After the homography matrix is calculate base on the footprint coordinate and corresponding image coordinate, the ROI corresponding image coordinate can be calculate base on the homography matrix.
 The transformation from geographic coordinates to image coordinates is performed in homogeneous form:<br>
