@@ -16,3 +16,11 @@ download the footprint and quicklook of Sentinel-2 base on the api of Copernicus
 **quicklookclip.py**<br>
 clip the quicklook base on the calculation of footprint and ROI coordinate.
 
+**homography.py**<br>
+clip the quicklook by homography transformation.
+
+**area.py**<br>
+compair the result of different way of clip.
+
+**area**<br>
+calculate cloud rate.
